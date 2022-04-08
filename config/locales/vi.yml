@@ -122,3 +122,24 @@ vi:
       order_address: "Địa chỉ giao hàng"
       change_button: "Thay đổi"
       add_address: "Thêm địa chỉ"
+      no_proc_in_cart: "Không có sản phẩm nào trong giỏ hàng, mua đi bro!"
+    create:
+      success_order: "Đặt hàng thành công"
+      has_err: "Không thành công, có lỗi xảy ra"
+    index:
+      all_orders: "Tất cả"
+      product_name: "Tên sản phẩm"
+      quantity: "Số lượng"
+      price: "Giá"
+      total: "Tổng tiền"
+      action: "Hành động"
+      order_date: "Ngày mua"
+      all_order_title: "Danh sách hóa đơn"
+  enums:
+    order_status:
+      waiting: "Hàng chờ"
+      making: "Đang làm"
+      delivering: "Đang giao"
+      delivered: "Đã giao hàng"
+      success: "Thành công"
+      rejected: "Hủy đơn"

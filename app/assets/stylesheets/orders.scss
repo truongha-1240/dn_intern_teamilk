@@ -49,9 +49,18 @@
 
 .action-order {
   display: flex;
-  justify-content: center;
-
   form {
     margin-left: 10px;
+  }
+  a {
+    margin-right: 10px;
+  }
+}
+
+.list-product {
+  .panel-title {
+    .status_of_order {
+      color: red;
+    }
   }
 }

@@ -122,3 +122,24 @@ en:
       order_address: "Order Address"
       change_button: "Change"
       add_address: "Add address"
+      no_proc_in_cart: "There are no products in the cart, go buy it bro!"
+    create:
+      success_order: "Successful order"
+      has_err: "Failed, an error occurred"
+    index:
+      all_orders: "All orders"
+      product_name: "Product Name"
+      quantity: "Quantity"
+      price: "Price"
+      total: "Total"
+      action: "Action"
+      order_date: "Order Date"
+      all_order_title: "List all orders"
+  enums:
+    order_status:
+      waiting: "Waiting"
+      making: "Making"
+      delivering: "Delivering"
+      delivered: "Delivered"
+      success: "Success"
+      rejected: "Rejected"

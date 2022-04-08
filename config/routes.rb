@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     delete "/:product_detail_id/cart", to: "carts#destroy"
 
     resources :orders
+    get "order/status/:id_status", to: "orders#show_by_status", as: "show_order_by_status"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
