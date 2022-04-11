@@ -9,6 +9,9 @@ class Order < ApplicationRecord
   enum status: {waiting: 0, making: 1, delivering: 2,
                 delivered: 3, success: 4, rejected: 5}
 
+  validates :quantity, presence: true
+  validates :price, presence: true
+
   scope :list_orders_of_user, ->(id){where user_id: id}
   scope :sort_by_day, ->{order(created_at: :desc)}
   scope :show_by_status, ->(id_status){where status: id_status}

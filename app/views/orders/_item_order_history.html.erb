@@ -32,12 +32,12 @@
             <% end %>
           </td>
           <td><%= order.order_details.sum("quantity") %></td>
-          <td><%= number_to_currency(order.order_details.sum("price")) %></td>
+          <td><%= number_to_currency(caculator_price_in_order order) %></td>
           <td><%= l(order.created_at, format: :long) %></td>
           <td class="action-order">
             <%= link_to t("show"), order, class: "btn btn-primary" %>
             <% if order.waiting? %>
-              <%= link_to t("Cancel"), order, class: "btn btn-danger" %>
+              <%= link_to t("Cancel"), order, class: "btn btn-danger", method: :delete %>
             <% end %>
           </td>
         </tr>

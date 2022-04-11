@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   include OrdersHelper
   before_action :logged_in_user
   before_action :order_new_create, only: :create
+  before_action :find_order_by_id, only: %i(show destroy)
+  before_action :change_status, only: :destroy
 
   def index
     @pagy, @orders = pagy Order.list_orders_of_user(current_user.id)
@@ -44,6 +46,10 @@ class OrdersController < ApplicationController
     render "index"
   end
 
+  def show; end
+
+  def destroy; end
+
   private
 
   def params_new_order
@@ -74,5 +80,25 @@ class OrdersController < ApplicationController
     delete_cart product_detail_id
     flash[:danger] = t("product.out_of_stock")
     redirect_to cart_path
+  end
+
+  def find_order_by_id
+    @order = current_user.orders.find_by id: params[:id]
+    return @order if @order
+
+    flash[:danger] = t("carts.create.not_found_product")
+    redirect_to cart_path
+  end
+
+  def change_status
+    ActiveRecord::Base.transaction do
+      @order.update!(status: 5)
+      cart_current.clear
+    end
+    flash[:success] = t ".success_order"
+    redirect_to orders_url
+  rescue NoMethodError
+    flash[:danger] = t ".has_err"
+    redirect_to orders_url
   end
 end

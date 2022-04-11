@@ -14,4 +14,8 @@ module OrdersHelper
     flash[:danger] = t ".has_err"
     redirect_to new_order_url
   end
+
+  def caculator_price_in_order order
+    order.order_details.sum("price * quantity")
+  end
 end

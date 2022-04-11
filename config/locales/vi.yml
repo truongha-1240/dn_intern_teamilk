@@ -123,6 +123,7 @@ vi:
       change_button: "Thay đổi"
       add_address: "Thêm địa chỉ"
       no_proc_in_cart: "Không có sản phẩm nào trong giỏ hàng, mua đi bro!"
+      status_order: "Trạng thái đơn hàng"
     create:
       success_order: "Đặt hàng thành công"
       has_err: "Không thành công, có lỗi xảy ra"
@@ -135,6 +136,9 @@ vi:
       action: "Hành động"
       order_date: "Ngày mua"
       all_order_title: "Danh sách hóa đơn"
+    destroy:
+      success_order: "Hủy đơn hàng thành công"
+      has_err: "Có lỗi xảy ra, hủy đơn hàng thất bại"
   enums:
     order_status:
       waiting: "Hàng chờ"

@@ -123,6 +123,7 @@ en:
       change_button: "Change"
       add_address: "Add address"
       no_proc_in_cart: "There are no products in the cart, go buy it bro!"
+      status_order: "Status Order"
     create:
       success_order: "Successful order"
       has_err: "Failed, an error occurred"
@@ -135,6 +136,9 @@ en:
       action: "Action"
       order_date: "Order Date"
       all_order_title: "List all orders"
+    destroy:
+      success: "Rejected order success"
+      has_err: "Rejected order has error"
   enums:
     order_status:
       waiting: "Waiting"
