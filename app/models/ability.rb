@@ -12,6 +12,7 @@ class Ability
     can :manage, Review, user_id: user.id
     can :manage, Address, user_id: user.id
     can :manage, [Order, OrderDetail], user_id: user.id
+    #12 13 14
 
     return unless user.admin?
 

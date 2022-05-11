@@ -7,9 +7,12 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include CartsHelper
+  #extend và include
+  #concerns
 
   rescue_from CanCan::AccessDenied, with: :access_denied
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
 
   protected
 

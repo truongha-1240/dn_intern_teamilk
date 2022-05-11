@@ -23,20 +23,20 @@
 #                        product_id: Product.pluck(:id).sample)
 # end
 
-Address.create(
-  name: "Hoài Thương",
-  address: "13F, Keangnam Hanoi Landmark Tower, Pham Hung, Nam Tu Liem, Hanoi",
-  phone: "0123456789",
-  default_address: true,
-  user_id: 1
-)
+# Address.create(
+#   name: "Hoài Thương",
+#   address: "13F, Keangnam Hanoi Landmark Tower, Pham Hung, Nam Tu Liem, Hanoi",
+#   phone: "0123456789",
+#   default_address: true,
+#   user_id: 1
+# )
 
 Address.create(
-  name: "Hoài Nhớ",
-  address: "4F, FHome Building, 16 Ly Thuong Kiet Str., Hai Chau district, Da Nang",
-  phone: "0123456789",
+  name: "Hoài Yêu",
+  address: "8F Nice building, 467 Dien Bien Phu Str., Ward 25, Binh Thanh district, HCMC",
+  phone: "0987532423",
   default_address: false,
-  user_id: 1
+  user_id: 7
 )
 
 # User.create(name: "Khach quen", email: "kq1@gmail.com",

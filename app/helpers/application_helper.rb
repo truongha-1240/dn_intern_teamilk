@@ -11,5 +11,9 @@ module ApplicationHelper
     t "shared.what_do_u_need"
   end
 
+  def log_in user
+    session[:user_id] = user.id
+  end
+
   include Pagy::Frontend
 end

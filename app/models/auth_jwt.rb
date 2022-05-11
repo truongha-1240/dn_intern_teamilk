@@ -1,0 +1,2 @@
+class AuthJwt < ApplicationRecord
+end

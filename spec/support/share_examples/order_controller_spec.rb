@@ -8,7 +8,7 @@ RSpec.shared_examples "not logged for get method" do |action|
     end
 
     it "show flag danger" do
-      expect(flash[:danger]).to eq I18n.t("carts.needs_login")
+      expect(flash[:danger]).to eq I18n.t("access_denied_login")
     end
   end
 end
@@ -20,7 +20,7 @@ RSpec.shared_examples "not logged for other method" do
     end
 
     it "show flag danger" do
-      expect(flash[:danger]).to eq I18n.t("carts.needs_login")
+      expect(flash[:danger]).to eq I18n.t("access_denied_login")
     end
   end
 end

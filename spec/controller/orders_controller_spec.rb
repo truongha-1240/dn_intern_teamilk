@@ -1,5 +1,4 @@
 require 'rails_helper'
-include SessionsHelper
 include CartsHelper
 RSpec.describe OrdersController, type: :controller do
   let!(:user) {FactoryBot.create(:user)}
@@ -17,8 +16,9 @@ RSpec.describe OrdersController, type: :controller do
     it_behaves_like "not logged for get method", "index"
 
     context "when has login" do
+
       before do
-        log_in user
+        sign_in user
         get :index
       end
 
@@ -36,7 +36,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when has login" do
       before do
-        log_in user
+        sign_in user
         get :new
         session[:carts] = {}
       end
@@ -100,12 +100,12 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when has login" do
       before do
-        log_in user
+        sign_in user
         session[:carts] = {product_detail_1.id => 2, product_detail_2.id => 2, product_detail_3.id => -12}
         post :create, params: {address_id: address.id}
       end
       it "check data new_order" do
-        expect(assigns(:new_order)).to eq(current_user.orders.last)
+        expect(assigns(:new_order)).to eq(user.orders.last)
       end
 
       it "redirect home pages" do
@@ -121,7 +121,7 @@ RSpec.describe OrdersController, type: :controller do
       before do
         allow_any_instance_of(Order).to receive(:save!).and_raise(ActiveRecord::RecordInvalid)
 
-        log_in user
+        sign_in user
         post :create, params: {address_id: address.id}
         session[:carts] = {product_detail_1.id => 2, product_detail_2.id => 2, product_detail_3.id => -12}
       end
@@ -148,7 +148,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when has login" do
       before do
-        log_in user
+        sign_in user
         get :show_by_status, params: {id_status: 2}
       end
 
@@ -174,8 +174,9 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when has login" do
       before do
-        log_in user
+        sign_in user
       end
+
       context "find order by id" do
         before do
           put :update, params: {address_id: address.id, id: order_1.id}
@@ -199,11 +200,11 @@ RSpec.describe OrdersController, type: :controller do
         end
 
         it "flash danger" do
-          expect(flash[:danger]).to eq I18n.t("carts.create.not_found_product")
+          expect(flash[:danger]).to eq I18n.t("not_found")
         end
 
         it "redirect cart pages" do
-          expect(response).to redirect_to cart_path
+          expect(response).to redirect_to root_path
         end
       end
 
@@ -235,7 +236,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when has login" do
       before do
-        log_in user
+        sign_in user
       end
 
       context "find order by id" do
@@ -262,11 +263,11 @@ RSpec.describe OrdersController, type: :controller do
         end
 
         it "flash danger" do
-          expect(flash[:danger]).to eq I18n.t("carts.create.not_found_product")
+          expect(flash[:danger]).to eq I18n.t("not_found")
         end
 
         it "redirect cart pages" do
-          expect(response).to redirect_to cart_path
+          expect(response).to redirect_to root_path
         end
       end
 

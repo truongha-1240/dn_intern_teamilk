@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_032812) do
+ActiveRecord::Schema.define(version: 2022_05_11_065838) do
 
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 2022_04_27_032812) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "auth_jwts", charset: "utf8mb3", force: :cascade do |t|
+    t.string "token_jwt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "order_details", charset: "utf8mb3", force: :cascade do |t|
